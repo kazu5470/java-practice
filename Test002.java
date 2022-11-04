@@ -1,23 +1,17 @@
 import java.io.*;
 import java.util.*;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-public class Test02 {
+public class Test002 {
     
-//     public static <K, V> K getKey(Map<K, V> map, V value)
-// 	{
-// 		for (K key: map.keySet())
-// 		{
-// 			if (value.equals(map.get(key))) {
-// 				return key;
-// 			}
-// 		}
-// 		return null;
-// 	}
+    public static <K, V> K getKey(Map<K, V> map, V value)
+	{
+		for (K key: map.keySet())
+		{
+			if (value.equals(map.get(key))) {
+				return key;
+			}
+		}
+		return null;
+	}
     
     public static void main(String[] args){
         Map<String, List<String>> normalMap = new HashMap<String, List<String>>();
@@ -58,16 +52,22 @@ public class Test02 {
         }
         normalMap.get("オレンジジュース").add("店内");
         
-        // for(Map.Entry<String, List<String>> entry : normalMap.entrySet() ){
-        //     System.out.println("key:" + entry.getKey() + ", value:" + entry.getValue());
-        // }
-        Set<String> foundKeys = normalMap.entrySet()
-                                  .stream()
-                                  .filter(entry -> Objects.equals(entry.getValue(), "サイズS"))
-                                  .map(Map.Entry::getKey)
-                                  .collect(Collectors.toSet());
-
-        System.out.println("Result: " + foundKeys);
-    }    
-}
+        
         // System.out.println(getKey(normalMap, "サイズS"));
+        // 全てのキーを取得
+        // for (String key : normalMap.keySet() ) {
+        //     System.out.println("key:" + key);
+        // }    
+        // // 全ての値を取得
+        // // for (String value : normalMap.values() ) {
+        // //     System.out.println("value:" + value);
+        // // }    
+        // // 全てのキーと値を取得 
+        for(Map.Entry<String, List<String>> entry : normalMap.entrySet() ){
+            System.out.println("key:" + entry.getKey() + ", value:" + entry.getValue());
+        }    
+        // hashmap.put("コーヒー","サイズS","値段４００円","持ち帰り");
+        // hashmap.put("カフェオレ","サイズM","値段５００円","持ち帰り");
+        // hashmap.put("オレンジジュース","サイズS","値段４５０円","店内");
+    }
+}
