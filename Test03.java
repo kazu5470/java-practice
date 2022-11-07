@@ -8,5 +8,6 @@ public class Test03 {
         normalMap.put("コーヒー", "値段４００円");
         
         System.out.println(normalMap);
+        
     }
 }
